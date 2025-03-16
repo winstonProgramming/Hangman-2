@@ -233,7 +233,7 @@ attempts_label = ctk.CTkLabel(game_frame, text="Guesses left: " + str(guesses_le
 attempts_label.pack(pady=10)
 result_label = ctk.CTkLabel(game_frame, text="", font=('Helvetica', 24, "bold"), text_color="black")
 result_label.pack(pady=10)
-definition_label = ctk.CTkLabel(game_frame, text="", font=('Helvetica', 12, 'bold'), text_color="black", wraplength=600)
+definition_label = ctk.CTkLabel(game_frame, text="Definition not found", font=('Helvetica', 12, 'bold'), text_color="black", wraplength=600)
 definition_label.pack(pady=10)
 guess_entry = ctk.CTkEntry(game_frame, font=('Helvetica', 24), width=60, justify="center", text_color="black")
 guess_entry.pack(pady=10)
