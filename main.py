@@ -39,6 +39,8 @@ def show_settings():
 def select_difficulty(selected_difficulty):
     global difficulty, number_of_guesses
 
+    if selected_difficulty == "Novice":
+        difficulty = "Novice"
     if selected_difficulty == "Easy":
         difficulty = "Easy"
     if selected_difficulty == "Medium":
@@ -48,14 +50,16 @@ def select_difficulty(selected_difficulty):
     if selected_difficulty == "Impossible":
         difficulty = "Impossible"
 
-    if difficulty == "Easy":
+    if difficulty == "Novice":
         number_of_guesses = 10
-    if difficulty == "Medium":
+    if difficulty == "Easy":
         number_of_guesses = 9
-    if difficulty == "Hard":
+    if difficulty == "Medium":
         number_of_guesses = 8
-    if difficulty == "Impossible":
+    if difficulty == "Hard":
         number_of_guesses = 7
+    if difficulty == "Impossible":
+        number_of_guesses = 6
 
     setup_game()
     show_game()
@@ -85,6 +89,7 @@ def setup_game():
 
     result_label.configure(text="", text_color="black")
     definition_label.configure(text="", text_color="black")
+    guess_entry.delete(0, 'end')
     guess_entry.configure(state="normal")
     guess_entry.bind("<Return>", lambda event: submit_guess())
     guess_button.configure(state="normal")
@@ -197,23 +202,25 @@ def get_definition(word):
 
 
 root = ctk.CTk()
-root.title("Hangman Game")
+root.title("Hangman 2")
 root.geometry("800x600")
 root.resizable(False, False)
 
 settings_frame = ctk.CTkFrame(root)
 game_frame = ctk.CTkFrame(root)
 
-header_label = ctk.CTkLabel(root, text="                                        HANGMAN GAME                                        ", font=('Helvetica', 36, 'bold'), fg_color="#4CAF50", text_color="black", pady=16)
+header_label = ctk.CTkLabel(root, text="                                        HANGMAN 2                                        ", font=('Helvetica', 36, 'bold'), fg_color="#4CAF50", text_color="black", pady=16)
 header_label.pack(fill="x")
 
-easy_button = ctk.CTkButton(settings_frame, text="Easy - 10 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Easy"))
+novice_button = ctk.CTkButton(settings_frame, text="Novice - 10 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Novice"))
+novice_button.pack(pady=16)
+easy_button = ctk.CTkButton(settings_frame, text="Easy - 9 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Easy"))
 easy_button.pack(pady=16)
-medium_button = ctk.CTkButton(settings_frame, text="Medium - 9 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Medium"))
+medium_button = ctk.CTkButton(settings_frame, text="Medium - 8 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Medium"))
 medium_button.pack(pady=16)
-hard_button = ctk.CTkButton(settings_frame, text="Hard - 8 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Hard"))
+hard_button = ctk.CTkButton(settings_frame, text="Hard - 7 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Hard"))
 hard_button.pack(pady=16)
-hard_button = ctk.CTkButton(settings_frame, text="Impossible - 7 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Impossible"))
+hard_button = ctk.CTkButton(settings_frame, text="Impossible - 6 guesses", font=('Helvetica', 32), command=lambda: select_difficulty("Impossible"))
 hard_button.pack(pady=16)
 
 settings_label = ctk.CTkButton(game_frame, text="Settings", font=('Helvetica', 20), command=show_settings)
