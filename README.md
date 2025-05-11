@@ -7,7 +7,7 @@
 <div>
   <img src="imgs/Hangman-2 img-1.png" width=300px>
   <img src="imgs/Hangman-2 img-2.png" width=300px>
-  <img src="imgs/Hangman-2 img-3.png" width=200px>
-  <img src="imgs/Hangman-2 img-4.png" width=200px>
-  <img src="imgs/Hangman-2 img-5.png" width=200px>
+  <img src="imgs/Hangman-2 img-3.png" width=300px>
+  <img src="imgs/Hangman-2 img-4.png" width=300px>
+  <img src="imgs/Hangman-2 img-5.png" width=300px>
 </div>
